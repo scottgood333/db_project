@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Home</title>
+    <script src="../static/districts.js"></script>
+</head>
+
+<body>
+    <header>
+        <h2>健保特約醫事機構</h2>
+        <nav>
+            <ul>
+                <li><a href="#">主頁</a></li>
+                <li><a href="#">總覽</a></li>
+                <li><a href="#">關於</a></li>
+                <li><a href="#">登入</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h3>健保特約醫事機構查詢</h3>
+        <form method="post">
+            <label for="county">縣市:</label>
+            <select id="county" onchange="changeDistricts()">
+                <option value="">請選擇</option>
+                <option value="keelung">基隆市</option>
+                <option value="newtaipei">新北市</option>
+                <option value="taipei">臺北市</option>
+                <option value="taoyuan">桃園市</option>
+                <option value="hsinchu">新竹市</option>
+                <option value="miaoli">苗栗縣</option>
+                <option value="taichung">臺中市</option>
+                <option value="changhua">彰化縣</option>
+                <option value="nantou">南投縣</option>
+                <option value="yunlin">雲林縣</option>
+                <option value="chiayi_county">嘉義縣</option>
+                <option value="chiayi_city">嘉義市</option>
+                <option value="tainan">臺南市</option>
+                <option value="kaohsiung">高雄市</option>
+                <option value="pingtung">屏東縣</option>
+                <option value="yilan">宜蘭縣</option>
+                <option value="hualien">花蓮縣</option>
+                <option value="taitung">臺東縣</option>
+            </select>
+            <br>
+            <label for="district">行政區:</label>
+            <select id="district">
+                <option value="">請先選擇縣市</option>
+            </select>
+            <br>
+            <label for="department">診療科別:</label>
+            <select name="department" id="department">
+                <option>家醫科</option>
+                <option>內科</option>
+                <option>外科</option>
+                <option>兒科</option>
+                <option>婦產科</option>
+                <option>骨科科</option>
+                <option>神經外科</option>
+                <option>泌尿科</option>
+                <option>耳鼻喉科</option>
+                <option>眼科</option>
+                <option>皮膚科</option>
+                <option>神經科</option>
+                <option>精神科</option>
+                <option>整形外科</option>
+                <option>急診醫學科</option>
+                <option>牙科</option>
+                <option>口腔顎面外科</option>
+                <option>麻醉科</option>
+                <option>核子醫學科</option>
+                <option>放射腫瘤科</option>
+                <option>放射診斷科</option>
+                <option>解剖病理科</option>
+                <option>臨床病理科</option>
+            </select>
+            <br>
+            <label for="institution">醫事機構類別:</label>
+            <select name="institution" id="institution">
+                <option>綜合醫院</option>
+                <option>精神科醫院</option>
+                <option>醫院</option>
+            </select>
+            <br>
+            <label for="day">看診時間:</label>
+            <select name="day" id="day">
+                <option>星期一</option>
+                <option>星期二</option>
+                <option>星期三</option>
+                <option>星期四</option>
+                <option>星期五</option>
+                <option>星期六</option>
+                <option>星期日</option>
+            </select>
+            <br>
+            <input type="submit" value="查詢">
+        </form>
+    </main>
+
+    <footer>
+        <p>其他資訊</p>
+    </footer>
+
+</body>
+
+</html>
