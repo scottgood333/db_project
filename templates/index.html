@@ -5,28 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Home</title>
-    <script src="../static/districts.js"></script>
+    <script src="../static/options.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
     <header>
-        <h2>健保特約醫事機構</h2>
-        <nav>
-            <ul>
-                <li><a href="#">主頁</a></li>
-                <li><a href="#">總覽</a></li>
-                <li><a href="#">關於</a></li>
-                <li><a href="#">登入</a></li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">導覽列</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">主頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">關於</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">登入</a>
+                </li>
             </ul>
         </nav>
     </header>
-    <main>
+    <body>
         <h3>健保特約醫事機構查詢</h3>
-        <form method="post">
-            <label for="county">縣市:</label>
-            <select id="county" onchange="changeDistricts()">
+        <form method="post" class="form-search">
+            <div class="form-group"></div>
+            <label for="county">縣市</label>
+            <select class="form-control" id="county" onchange="updateOptions()">
                 <option value="">請選擇</option>
                 <option value="keelung">基隆市</option>
                 <option value="newtaipei">新北市</option>
@@ -47,63 +68,24 @@
                 <option value="hualien">花蓮縣</option>
                 <option value="taitung">臺東縣</option>
             </select>
-            <br>
-            <label for="district">行政區:</label>
-            <select id="district">
-                <option value="">請先選擇縣市</option>
-            </select>
-            <br>
-            <label for="department">診療科別:</label>
-            <select name="department" id="department">
-                <option>家醫科</option>
-                <option>內科</option>
-                <option>外科</option>
-                <option>兒科</option>
-                <option>婦產科</option>
-                <option>骨科科</option>
-                <option>神經外科</option>
-                <option>泌尿科</option>
-                <option>耳鼻喉科</option>
-                <option>眼科</option>
-                <option>皮膚科</option>
-                <option>神經科</option>
-                <option>精神科</option>
-                <option>整形外科</option>
-                <option>急診醫學科</option>
-                <option>牙科</option>
-                <option>口腔顎面外科</option>
-                <option>麻醉科</option>
-                <option>核子醫學科</option>
-                <option>放射腫瘤科</option>
-                <option>放射診斷科</option>
-                <option>解剖病理科</option>
-                <option>臨床病理科</option>
-            </select>
-            <br>
-            <label for="institution">醫事機構類別:</label>
-            <select name="institution" id="institution">
-                <option>綜合醫院</option>
-                <option>精神科醫院</option>
-                <option>醫院</option>
-            </select>
-            <br>
-            <label for="day">看診時間:</label>
-            <select name="day" id="day">
-                <option>星期一</option>
-                <option>星期二</option>
-                <option>星期三</option>
-                <option>星期四</option>
-                <option>星期五</option>
-                <option>星期六</option>
-                <option>星期日</option>
-            </select>
-            <br>
-            <input type="submit" value="查詢">
+            </div>
+            <div class="form-group">
+                <label for="district">行政區</label>
+                <select class="form-control" id="district" onchange="updateOptions()">
+                    <option value="">請先選擇縣市</option>
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="department">診療科別</label>
+                <select class="form-control" name="department" id="department">
+                    <option value="">請先選擇行政區</option>
+                </select>
+            </div> -->
+            <button type="submit" class="btn btn-primary mb-2">查詢</button>
         </form>
-    </main>
+    </body>
 
     <footer>
-        <p>其他資訊</p>
     </footer>
 
 </body>

@@ -1,0 +1,23 @@
+form {
+    display: block;
+}
+
+.form-search {
+    width: 100%;
+    max-width: 330px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 10;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+
+h3 {
+    text-align: center;
+}
