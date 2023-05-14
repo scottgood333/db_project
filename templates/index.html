@@ -7,87 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script src="../static/options.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">導覽列</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">主頁</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">主頁</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">關於</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">登入</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <body>
-        <h3>健保特約醫事機構查詢</h3>
-        <form method="post" class="form-search">
-            <div class="form-group"></div>
-            <label for="county">縣市</label>
-            <select class="form-control" id="county" onchange="updateOptions()">
-                <option value="">請選擇</option>
-                <option value="keelung">基隆市</option>
-                <option value="newtaipei">新北市</option>
-                <option value="taipei">臺北市</option>
-                <option value="taoyuan">桃園市</option>
-                <option value="hsinchu">新竹市</option>
-                <option value="miaoli">苗栗縣</option>
-                <option value="taichung">臺中市</option>
-                <option value="changhua">彰化縣</option>
-                <option value="nantou">南投縣</option>
-                <option value="yunlin">雲林縣</option>
-                <option value="chiayi_county">嘉義縣</option>
-                <option value="chiayi_city">嘉義市</option>
-                <option value="tainan">臺南市</option>
-                <option value="kaohsiung">高雄市</option>
-                <option value="pingtung">屏東縣</option>
-                <option value="yilan">宜蘭縣</option>
-                <option value="hualien">花蓮縣</option>
-                <option value="taitung">臺東縣</option>
-            </select>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">登入</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="#">關於</a>
+                    </li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="district">行政區</label>
-                <select class="form-control" id="district" onchange="updateOptions()">
-                    <option value="">請先選擇縣市</option>
-                </select>
+        </div>
+    </nav>
+    <!-- 查詢 -->
+    <div class="search-form">
+        <form method="post">
+            <h1>健保特約醫事機構查詢</h1>
+            <div class="content">
+                <div class="select-field">
+                    <!-- <label for="county" class="form-label">縣市</label> -->
+                    <select class="form-select" id="county" onchange="updateOptions()">
+                        <option value="">縣市</option>
+                        <option value="keelung">基隆市</option>
+                        <option value="newtaipei">新北市</option>
+                        <option value="taipei">臺北市</option>
+                        <option value="taoyuan">桃園市</option>
+                        <option value="hsinchu">新竹市</option>
+                        <option value="miaoli">苗栗縣</option>
+                        <option value="taichung">臺中市</option>
+                        <option value="changhua">彰化縣</option>
+                        <option value="nantou">南投縣</option>
+                        <option value="yunlin">雲林縣</option>
+                        <option value="chiayi_county">嘉義縣</option>
+                        <option value="chiayi_city">嘉義市</option>
+                        <option value="tainan">臺南市</option>
+                        <option value="kaohsiung">高雄市</option>
+                        <option value="pingtung">屏東縣</option>
+                        <option value="yilan">宜蘭縣</option>
+                        <option value="hualien">花蓮縣</option>
+                        <option value="taitung">臺東縣</option>
+                    </select>
+                </div>
+                <div class="select-field">
+                    <!-- <label for="district">行政區</label> -->
+                    <select class="form-select" id="district" onchange="updateOptions()">
+                        <option value="">行政區</option>
+                    </select>
+                </div>
+                <div class="select-field">
+                    <!-- <label for="type">機構類別</label> -->
+                    <select class="form-select" id="type">
+                        <option value="">機構類別</option>
+                        <option value="regional">區域醫院</option>
+                    </select>
+                </div>
             </div>
-            <!-- <div class="form-group">
-                <label for="department">診療科別</label>
-                <select class="form-control" name="department" id="department">
-                    <option value="">請先選擇行政區</option>
-                </select>
-            </div> -->
-            <button type="submit" class="btn btn-primary mb-2">查詢</button>
+            <div class="action">
+                <div class="btn-field">
+                    <button type="submit" class="btn">查詢</button>
+                </div>
+            </div>
         </form>
-    </body>
+    </div>
 
-    <footer>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
