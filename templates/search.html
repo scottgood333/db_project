@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>查詢</title>
     <script src="../static/options.js"></script>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/search.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
@@ -15,17 +15,17 @@
     <!-- 導覽列 -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">主頁</a>
+            <span class="navbar-brand mb-0 h1">健保特約查詢平台</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">登入</a>
+                        <a class="nav-link" href="#">查詢</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="#">關於</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">常用</a>
                     </li>
                 </ul>
             </div>
@@ -37,37 +37,41 @@
             <h1>健保特約醫事機構查詢</h1>
             <div class="content">
                 <div class="select-field">
-                    <!-- <label for="county" class="form-label">縣市</label> -->
                     <select class="form-select" id="county" onchange="updateOptions()">
                         <option value="">縣市</option>
-                        <option value="keelung">基隆市</option>
-                        <option value="newtaipei">新北市</option>
-                        <option value="taipei">臺北市</option>
-                        <option value="taoyuan">桃園市</option>
-                        <option value="hsinchu">新竹市</option>
-                        <option value="miaoli">苗栗縣</option>
-                        <option value="taichung">臺中市</option>
-                        <option value="changhua">彰化縣</option>
-                        <option value="nantou">南投縣</option>
-                        <option value="yunlin">雲林縣</option>
-                        <option value="chiayi_county">嘉義縣</option>
-                        <option value="chiayi_city">嘉義市</option>
-                        <option value="tainan">臺南市</option>
-                        <option value="kaohsiung">高雄市</option>
-                        <option value="pingtung">屏東縣</option>
-                        <option value="yilan">宜蘭縣</option>
-                        <option value="hualien">花蓮縣</option>
-                        <option value="taitung">臺東縣</option>
+                        <!-- 6個直轄市 -->
+                        <option value="臺北市">臺北市</option>
+                        <option value="新北市">新北市</option>
+                        <option value="桃園市">桃園市</option>
+                        <option value="臺中市">臺中市</option>
+                        <option value="臺南市">臺南市</option>
+                        <option value="高雄市">高雄市</option>
+                        <!-- 16個縣(市) -->
+                        <option value="苗栗縣">苗栗縣</option>
+                        <option value="彰化縣">彰化縣</option>
+                        <option value="南投縣">南投縣</option>
+                        <option value="雲林縣">雲林縣</option>
+                        <option value="嘉義縣">嘉義縣</option>
+                        <option value="屏東縣">屏東縣</option>
+                        <option value="宜蘭縣">宜蘭縣</option>
+                        <option value="花蓮縣">花蓮縣</option>
+                        <option value="臺東縣">臺東縣</option>
+                        <option value="基隆市">基隆市</option>
+                        <option value="新竹市">新竹市</option>
+                        <option value="嘉義市">嘉義市</option>
+                        <!-- 新增的 -->
+                        <option value="新竹縣">新竹縣</option>
+                        <option value="澎湖縣">澎湖縣</option>
+                        <option value="金門縣">金門縣</option>
+                        <option value="連江縣">連江縣</option>
                     </select>
                 </div>
                 <div class="select-field">
-                    <!-- <label for="district">行政區</label> -->
                     <select class="form-select" id="district" onchange="updateOptions()">
                         <option value="">行政區</option>
                     </select>
                 </div>
                 <div class="select-field">
-                    <!-- <label for="type">機構類別</label> -->
                     <select class="form-select" id="type">
                         <option value="">機構類別</option>
                         <option value="regional">區域醫院</option>

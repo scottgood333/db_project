@@ -8,7 +8,7 @@ function updateOptions() {
     // departmentSelect.innerHTML = "";
 
     // 根據第一個選項的值，更新第二個選項的選項
-    if (countySelect.value === "keelung") {
+    if (countySelect.value === "基隆市") {
         // keelung 基隆
         var content = ["信義區", "安樂區"];
         for (let i = 0; i < content.length; i++) {
@@ -17,7 +17,7 @@ function updateOptions() {
             option.text = "基隆市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "newtaipei") {
+    } else if (countySelect.value === "新北市") {
         // newtaipei 新北市
         var content = ['三峽區', '新店區', '八里區', '汐止區', '泰山區', '新莊區', '中和區', '三重區'];
         for (let i = 0; i < content.length; i++) {
@@ -26,7 +26,7 @@ function updateOptions() {
             option.text = "新北市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "taipei") {
+    } else if (countySelect.value === "臺北市") {
         // taipei 臺北市
         var content = ['松山區', '北投區', '信義區', '大同區'];
         for (let i = 0; i < content.length; i++) {
@@ -35,7 +35,7 @@ function updateOptions() {
             option.text = "臺北市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "taoyuan") {
+    } else if (countySelect.value === "桃園市") {
         // taoyuan 桃園
         var content = ['桃園區', '平鎮區', '龍潭區', '中壢區'];
         for (let i = 0; i < content.length; i++) {
@@ -44,7 +44,7 @@ function updateOptions() {
             option.text = "桃園市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "hsinchu") {
+    } else if (countySelect.value === "新竹市") {
         // hsinchu 新竹市
         var content = ['東區光', '竹北市', '北區金'];
         for (let i = 0; i < content.length; i++) {
@@ -53,7 +53,7 @@ function updateOptions() {
             option.text = "新竹市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "miaoli") {
+    } else if (countySelect.value === "苗栗縣") {
         // miaoli 苗栗縣
         var content = ['頭份市', '苗栗市'];
         for (let i = 0; i < content.length; i++) {
@@ -62,7 +62,7 @@ function updateOptions() {
             option.text = "苗栗縣" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "taichung") {
+    } else if (countySelect.value === "臺中市") {
         // taichung 臺中市
         var content = ['太平區', '豐原區', '西屯區', '大甲區', '中區平', '沙鹿區', '西區三', '梧棲區', '潭子區', '南屯區', '大里區'];
         for (let i = 0; i < content.length; i++) {
@@ -71,7 +71,7 @@ function updateOptions() {
             option.text = "臺中市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "changhua") {
+    } else if (countySelect.value === "彰化縣") {
         // changhua 彰化縣
         var content = ['鹿港鎮', '埔心鄉', '彰化市'];
         for (let i = 0; i < content.length; i++) {
@@ -80,7 +80,7 @@ function updateOptions() {
             option.text = "彰化縣" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "nantou") {
+    } else if (countySelect.value === "南投縣") {
         // nantou 南投縣
         var content = ['南投市', '草屯鎮', '埔里鎮'];
         for (let i = 0; i < content.length; i++) {
@@ -89,7 +89,7 @@ function updateOptions() {
             option.text = "南投縣" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "yunlin") {
+    } else if (countySelect.value === "雲林縣") {
         // yunlin 雲林縣
         var content = ['北港鎮', '斗六市'];
         for (let i = 0; i < content.length; i++) {
@@ -98,7 +98,7 @@ function updateOptions() {
             option.text = "雲林縣" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "chiayi_county") {
+    } else if (countySelect.value === "嘉義縣") {
         // chiayi_county 嘉義縣
         var content = ['朴子市', '大林鎮'];
         for (let i = 0; i < content.length; i++) {
@@ -107,7 +107,7 @@ function updateOptions() {
             option.text = "嘉義縣" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "chiayi_city") {
+    } else if (countySelect.value === "嘉義市") {
         // chiayi_city 嘉義市
         var content = ['東區', '西區'];
         for (let i = 0; i < content.length; i++) {
@@ -116,7 +116,7 @@ function updateOptions() {
             option.text = "嘉義市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "tainan") {
+    } else if (countySelect.value === "臺南市") {
         // tainan 臺南市
         var content = ['東區泉', '仁德區', '麻豆區', '東區崇', '安南區', '柳營區', '中西區'];
         for (let i = 0; i < content.length; i++) {
@@ -125,7 +125,7 @@ function updateOptions() {
             option.text = "臺南市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "kaohsiung") {
+    } else if (countySelect.value === "高雄市") {
         // kaohsiung 高雄市
         var content = ['燕巢區', '苓雅區', '大寮區', '鼓山區', '前金區', '左營區', '小港區'];
         for (let i = 0; i < content.length; i++) {
@@ -134,7 +134,7 @@ function updateOptions() {
             option.text = "高雄市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "yilan") {
+    } else if (countySelect.value === "宜蘭縣") {
         // yilan 宜蘭縣
         var content = ['宜蘭市', '羅東鎮'];
         for (let i = 0; i < content.length; i++) {
@@ -143,7 +143,7 @@ function updateOptions() {
             option.text = "宜蘭縣" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "hualien") {
+    } else if (countySelect.value === "花蓮市") {
         // hualien 花蓮市
         var content = ['花蓮市', '新城鄉'];
         for (let i = 0; i < content.length; i++) {
@@ -152,7 +152,7 @@ function updateOptions() {
             option.text = "花蓮市" + content[i];
             districtSelect.add(option);
         }
-    } else if (countySelect.value === "taitung") {
+    } else if (countySelect.value === "臺東市") {
         // taitung 臺東市
         var content = ['臺東市'];
         for (let i = 0; i < content.length; i++) {
