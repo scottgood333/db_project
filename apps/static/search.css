@@ -60,3 +60,7 @@
     border: 0;
     background-color: #619ce8;
   }
+
+  p {
+    text-align: left;
+  }
