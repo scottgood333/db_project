@@ -1,6 +1,6 @@
 import csv
 
-file = open("data/RegionalHospital.csv", 'r', encoding="utf-8")
+file = open("./RegionalHospital.csv", 'r', encoding="utf-8")
 
 reader = csv.reader(file)
 
