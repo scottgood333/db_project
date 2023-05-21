@@ -29,30 +29,30 @@ def login():
 @app.route('/<username>/search', methods=['GET', 'POST'])
 def search(username):
     if request.method == 'POST':
-        on_day = []
+        on_days = []
         county = request.values['county']
         district = request.values['district']
         type = request.values['type']
 
         if request.form.get('mon'):
-            on_day.append('mon')
+            on_days.append('星期一')
         if request.form.get('tue'):
-            on_day.append('tue')
+            on_days.append('星期二')
         if request.form.get('wed'):
-            on_day.append('wed')
+            on_days.append('星期三')
         if request.form.get('thr'):
-            on_day.append('thr')
+            on_days.append('星期四')
         if request.form.get('fri'):
-            on_day.append('fri')
+            on_days.append('星期五')
         if request.form.get('sat'):
-            on_day.append('sat')
+            on_days.append('星期六')
         if request.form.get('sun'):
-            on_day.append('sun')
+            on_days.append('星期日')
 
         print(county)
         print(district)
         print(type)
-        print(on_day)
+        print(on_days)
 
         return redirect(url_for('search', username=username))
     return render_template('search.html')
