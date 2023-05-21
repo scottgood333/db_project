@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('search') }}">查詢</a>
+                        <a class="nav-link" href="{{ url_for('search', username=username) }}">查詢</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('favorite') }}">常用</a>
+                        <a class="nav-link" href="{{ url_for('favorite', username=username) }}">常用</a>
                     </li>
                 </ul>
             </div>
@@ -68,7 +68,8 @@
                         <label class="form-check-label">常用</label>
                     </div>
                 </div>
-            </div><div class="col">
+            </div>
+            <div class="col">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="fw-bold" id="name">機構名稱 name</h5>
@@ -82,7 +83,8 @@
                         <label class="form-check-label">常用</label>
                     </div>
                 </div>
-            </div><div class="col">
+            </div>
+            <div class="col">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="fw-bold" id="name">機構名稱 name</h5>
@@ -134,17 +136,17 @@
                 },
                 body: JSON.stringify(data),
             })
-            .then(function (response) {
-                // 處理回應
-                if (response.ok) {
-                    console.log('資料已成功傳送');
-                } else {
-                    console.log('發生錯誤');
-                }
-            })
-            .catch(function (error) {
-                console.log('發生錯誤', error);
-            });
+                .then(function (response) {
+                    // 處理回應
+                    if (response.ok) {
+                        console.log('資料已成功傳送');
+                    } else {
+                        console.log('發生錯誤');
+                    }
+                })
+                .catch(function (error) {
+                    console.log('發生錯誤', error);
+                });
         }
 
     </script>
