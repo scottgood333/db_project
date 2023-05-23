@@ -1,12 +1,11 @@
 function updateOptions() {
     var countySelect = document.getElementById("county");
     var districtSelect = document.getElementById("district");
-    // var departmentSelect = document.getElementById("department");
 
     // 清空行政區、診療科目下拉選單
-    districtSelect.innerHTML = "";
-    // departmentSelect.innerHTML = "";
-
+    // districtSelect.innerHTML = "";
+    districtSelect.options.length = 0;
+    
     // 根據第一個選項的值，更新第二個選項的選項
     if (countySelect.value === "臺北市") {
         // 臺北市
