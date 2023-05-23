@@ -35,71 +35,35 @@
     <div class="container">
         <p class="fs-1 text-center">查詢結果</p>
     </div>
+    <!-- 測試資料 -->
+    <!-- <ul>
+        {% for key, value in dictionary.items() %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul> -->
     <!-- 結果 -->
     <div class="result">
         <div class="row row-cols-2 row-cols-md-4 g-4 mx-auto">
-
+            <!-- 透過jinja遞迴顯示資料 -->
+            {% for key, value in dictionary.items() %}
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="fw-bold" id="name">機構名稱 name</h5>
+                        <h5 class="fw-bold" id="name">{{ value['name'] }}</h5>
                         <hr>
-                        <h6 id="type">單位 type</h6>
-                        <h6 id="phone">電話 phone</h6>
-                        <h6 id="address">地址 address</h6>
+                        <h6 id="type">{{ value['type'] }}</h6>
+                        <h6 id="phone">{{ value['phone'] }}</h6>
+                        <h6 id="address">{{ value['address'] }}</h6>
+                        <h6 id="department">{{ value['department'] }}</h6>
+                        <h6 id="time">{{ value['time'] }}</h6>
                     </div>
                     <div class="card-footer">
-                        <input class="form-check-input" id="1" type="checkbox">
+                        <input class="form-check-input" id="{{ key }}" type="checkbox">
                         <label class="form-check-label">常用</label>
                     </div>
                 </div>
             </div>
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="fw-bold" id="name">機構名稱 name</h5>
-                        <hr>
-                        <h6 id="type">單位 type</h6>
-                        <h6 id="phone">電話 phone</h6>
-                        <h6 id="address">地址 address</h6>
-                    </div>
-                    <div class="card-footer">
-                        <input class="form-check-input" id="2" type="checkbox">
-                        <label class="form-check-label">常用</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="fw-bold" id="name">機構名稱 name</h5>
-                        <hr>
-                        <h6 id="type">單位 type</h6>
-                        <h6 id="phone">電話 phone</h6>
-                        <h6 id="address">地址 address</h6>
-                    </div>
-                    <div class="card-footer">
-                        <input class="form-check-input" id="3" type="checkbox">
-                        <label class="form-check-label">常用</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="fw-bold" id="name">機構名稱 name</h5>
-                        <hr>
-                        <h6 id="type">單位 type</h6>
-                        <h6 id="phone">電話 phone</h6>
-                        <h6 id="address">地址 address</h6>
-                    </div>
-                    <div class="card-footer">
-                        <input class="form-check-input" id="4" type="checkbox">
-                        <label class="form-check-label">常用</label>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 

@@ -16,7 +16,12 @@ def search():
 # 結果頁面
 @app.route('/result')
 def result():
-    return render_template('result.html')
+    # from data.example import dictionary
+    file = open("data/regional.json", "r", encoding="utf-8")
+    dictionary = json.load(file)
+    file.close()
+
+    return render_template('result.html', dictionary=dictionary)
 
 # 常用頁面
 @app.route('/favorite')
