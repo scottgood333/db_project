@@ -35,12 +35,6 @@
     <div class="container">
         <p class="fs-1 text-center">查詢結果</p>
     </div>
-    <!-- 測試資料 -->
-    <!-- <ul>
-        {% for key, value in dictionary.items() %}
-            <li>{{ key }}: {{ value }}</li>
-        {% endfor %}
-    </ul> -->
     <!-- 結果 -->
     <div class="result">
         <div class="row row-cols-2 row-cols-md-2 g-4 mx-auto">
@@ -55,7 +49,6 @@
                         <h6 id="phone">{{ value['phone'] }}</h6>
                         <h6 id="address">{{ value['address'] }}</h6>
                         <h6 id="department">{{ value['department'] }}</h6>
-                        <h6 id="time">{{ value['time'] }}</h6>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -72,33 +65,33 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">上午</th>
-                                    <td>&#9679;</td>
-                                    <td>&#10005;</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{% if value['time']['mon'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['tue'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['wed'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['thr'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['fri'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sat'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sun'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">下午</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{% if value['time']['mon'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['tue'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['wed'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['thr'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['fri'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sat'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sun'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">晚上</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{% if value['time']['mon'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['tue'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['wed'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['thr'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['fri'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sat'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sun'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
                                 </tr>
                             </tbody>
                         </table>
