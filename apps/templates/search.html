@@ -3,41 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查詢</title>
-    <script src="../static/options.js"></script>
-    <link rel="stylesheet" href="../static/search.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="../static/js/options.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/search.css">
 </head>
 
 <body>
-    <!-- 導覽列 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">健保特約查詢平台</span>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('search') }}">查詢</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('favorite') }}">常用</a>
-                    </li>
-                </ul>
+    <!-- 查詢 -->
+    <div class="box-form">
+        <div class="left">
+            <div class="overlay">
+                <h2>健保特約醫療機構</h2>
+                <h1>查詢平台</h1>
+
+                <a href="{{ url_for('favorite', username=username) }}">常用</a>
             </div>
         </div>
-    </nav>
-    <!-- 查詢 -->
-    <div class="search-form">
-        <form method="post">
-            <h1>健保特約醫事機構查詢</h1>
-            <div class="content">
-                <div class="select-field">
-                    <select class="form-select" id="county" onchange="updateOptions()">
+
+        <div class="right">
+            <h5>查詢</h5>
+            <form method="post">
+                <div class="inputs">
+                    <select name="county" id="county" onchange="updateOptions()">
                         <option value="">縣市</option>
                         <!-- 6個直轄市 -->
                         <option value="臺北市">臺北市</option>
@@ -65,14 +55,10 @@
                         <option value="金門縣">金門縣</option>
                         <option value="連江縣">連江縣</option>
                     </select>
-                </div>
-                <div class="select-field">
-                    <select class="form-select" id="district">
+                    <select id="district" name="district">
                         <option value="">行政區</option>
                     </select>
-                </div>
-                <div class="select-field">
-                    <select class="form-select" id="type">
+                    <select id="type" name="type">
                         <option value="">機構類別</option>
                         <option value="district">區域醫院</option>
                         <option value="regional">地區醫院</option>
@@ -80,48 +66,39 @@
                         <option value="clinic">診所</option>
                         <option value="pharmacy">藥局</option>
                     </select>
+                    <div class="checkbox">
+                        <input type="checkbox" id="mon" name="mon" checked>
+                        <label for="mon">一</label>
+    
+                        <input type="checkbox" id="tue" name="tue" checked>
+                        <label for="tue">二</label>
+    
+                        <input type="checkbox" id="wed" name="wed" checked>
+                        <label for="wed">三</label>
+    
+                        <input type="checkbox" id="thr" name="thr" checked>
+                        <label for="thr">四</label>
+    
+                        <input type="checkbox" id="fri" name="fri" checked>
+                        <label for="fri">五</label>
+    
+                        <input type="checkbox" id="sat" name="sat" checked>
+                        <label for="sat">六</label>
+    
+                        <input type="checkbox" id="sun" name="sun" checked>
+                        <label for="sun">日</label>
+                    </div>
                 </div>
-                <div class="select-field">
-                    <p>看診時間</p>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="mon">
-                        <label class="form-check-label" for="mon">一</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="tue">
-                        <label class="form-check-label" for="tue">二</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="wed">
-                        <label class="form-check-label" for="wed">三</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="thr">
-                        <label class="form-check-label" for="thr">四</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="fri">
-                        <label class="form-check-label" for="fri">五</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="sat">
-                        <label class="form-check-label" for="sat">六</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="sun">
-                        <label class="form-check-label" for="sun">日</label>
-                      </div>
-                </div>
-            </div>
-            <div class="action">
-                <div class="btn-field">
-                    <button type="submit" class="btn">查詢</button>
-                </div>
-            </div>
-        </form>
+                <button>查詢</button>
+            </form>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

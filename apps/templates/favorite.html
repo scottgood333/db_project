@@ -3,111 +3,101 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>常用</title>
-    <!-- <link rel="stylesheet" href="../static/search.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/favorite.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
 <body>
     <!-- 導覽列 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">健保特約查詢平台</span>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('search') }}">查詢</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('favorite') }}">常用</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h2>健保特約醫療機構</h2>
+        </div>
+        <div class="navbar-center">
+            <h1>常用</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('search', username=username) }}">查詢</a>
         </div>
     </nav>
-    <!-- 標題 -->
-    <div class="container">
-        <p class="fs-1 text-center">常用</p>
-    </div>
-    <!-- 結果 -->
-    <div class="favorite">
-        <div class="row row-cols-2 row-cols-md-2 g-4 mx-auto">
-            {% for key, value in dictionary.items() %}
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="fw-bold" id="name">{{ value['name'] }}</h5>
-                        <hr>
-                        <h6 id="type">{{ value['type'] }}</h6>
-                        <h6 id="phone">{{ value['phone'] }}</h6>
-                        <h6 id="address">{{ value['address'] }}</h6>
-                        <h6 id="department">{{ value['department'] }}</h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">一</th>
-                                    <th scope="col">二</th>
-                                    <th scope="col">三</th>
-                                    <th scope="col">四</th>
-                                    <th scope="col">五</th>
-                                    <th scope="col">六</th>
-                                    <th scope="col">日</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">上午</th>
-                                    <td>{% if value['time']['mon'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['tue'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['wed'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['thr'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['fri'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sat'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sun'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">下午</th>
-                                    <td>{% if value['time']['mon'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['tue'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['wed'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['thr'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['fri'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sat'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sun'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">晚上</th>
-                                    <td>{% if value['time']['mon'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['tue'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['wed'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['thr'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['fri'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sat'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sun'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer">
-                        <input class="form-check-input" id="{{ key }}" type="checkbox">
-                        <label class="form-check-label">常用</label>
-                    </div>
+    <!-- 常用結果 -->
+    <div class="content">
+        <!-- 透過jinja遞迴顯示資料 -->
+        <!-- for開始 -->
+        <div class="card">
+            <div class="card-title">
+                <div class="card-title-text">
+                    <h3>衛生福利部臺北醫院</h3>
+                </div>
+                <div class="card-title-button">
+                    <input type="checkbox" id="這裡放id" checked>
                 </div>
             </div>
-            {% endfor %}
+            <div class="card-content">
+                <div class="card-content-text">
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hospital" viewBox="0 0 16 16">
+                        <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5Zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9h-.5Zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Z"/>
+                        <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1V1Zm2 14h2v-3H7v3Zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm0-14H6v1h4V1Zm2 7v7h3V8h-3Zm-8 7V8H1v7h3Z"/>
+                      </svg>: 區域醫院</p>
+                    <p><i class="bi bi-telephone"></i>: 02-22765566</p>
+                    <p><i class="bi bi-geo-alt-fill"></i>: 新北市八里區華富山33號</p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-pulse" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Zm6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128L9.979 5.356Z"/>
+                      </svg>: 不分科,家醫科,內科,外科,兒科,婦產科,骨科,神經外科,泌尿科,耳鼻喉科,眼科,皮膚科,神經科,精神科,復健科,整形外科,職業醫學科,急診醫學科,牙科,中醫一般科,麻醉科,核子醫學科,放射腫瘤科,放射診斷科,解剖病理科</p>
+                </div>
+                <div class="card-content-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">一</th>
+                                <th scope="col">二</th>
+                                <th scope="col">三</th>
+                                <th scope="col">四</th>
+                                <th scope="col">五</th>
+                                <th scope="col">六</th>
+                                <th scope="col">日</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">上午</th>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">下午</th>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">晚上</th>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                                <td>&#9679;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+        <!-- for結束 -->
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
     <script>
         // 監聽所有的 checkbox
@@ -154,10 +144,6 @@
         }
 
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
