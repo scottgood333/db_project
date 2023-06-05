@@ -24,86 +24,101 @@
     </nav>
     <!-- 查詢結果 -->
     <div class="content">
-        <!-- 透過jinja遞迴顯示資料 -->
-        {% for key, value in dictionary.items() %}
-        <div class="card">
-            <div class="card-title">
-                <div class="card-title-text">
-                    <h3>{{ value['name'] }}</h3>
+        <form method="post" action="{{ url_for('result', username=username) }}">
+            <!-- 透過jinja遞迴顯示資料 -->
+            {% for key, value in dictionary.items() %}
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-title-text">
+                        <h3>{{ value['name'] }}</h3>
+                    </div>
+                    <div class="card-title-button">
+                        {% if value['is_favorite'] == 1: %}
+                        <input id="{{ key }}" type="checkbox" name="{{username}}" checked>
+                        {% else: %}
+                        <input id="{{ key }}" type="checkbox" name="{{username}}">
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="card-title-button">
-                    <input id="{{ key }}" type="checkbox">
+                <div class="card-content">
+                    <div class="card-content-text">
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-hospital" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5Zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9h-.5Zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Z" />
+                                <path
+                                    d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1V1Zm2 14h2v-3H7v3Zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm0-14H6v1h4V1Zm2 7v7h3V8h-3Zm-8 7V8H1v7h3Z" />
+                            </svg>: {{ value['type'] }}</p>
+                        <p><i class="bi bi-telephone"></i>: {{ value['phone'] }}</p>
+                        <i class="bi bi-geo-alt-fill"></i>: <a
+                            href="https://www.google.com/maps/search/?q={{ value['address'] }}">{{ value['address']
+                            }}</a>
+                        <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-clipboard-pulse" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Zm6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128L9.979 5.356Z" />
+                            </svg>: {{ value['department'] }}</p>
+                    </div>
+                    <div class="card-content-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">一</th>
+                                    <th scope="col">二</th>
+                                    <th scope="col">三</th>
+                                    <th scope="col">四</th>
+                                    <th scope="col">五</th>
+                                    <th scope="col">六</th>
+                                    <th scope="col">日</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">上午</th>
+                                    <td>{% if value['time']['mon'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['tue'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['wed'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['thr'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['fri'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sat'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sun'][0] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">下午</th>
+                                    <td>{% if value['time']['mon'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['tue'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['wed'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['thr'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['fri'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sat'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sun'][1] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">晚上</th>
+                                    <td>{% if value['time']['mon'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['tue'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['wed'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['thr'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['fri'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sat'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                    <td>{% if value['time']['sun'][2] == 1 %}&#9679;{% else %}&#10005;{% endif %}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="card-content">
-                <div class="card-content-text">
-                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hospital" viewBox="0 0 16 16">
-                        <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5Zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9h-.5Zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Z"/>
-                        <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1V1Zm2 14h2v-3H7v3Zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm0-14H6v1h4V1Zm2 7v7h3V8h-3Zm-8 7V8H1v7h3Z"/>
-                      </svg>: {{ value['type'] }}</p>
-                    <p><i class="bi bi-telephone"></i>: {{ value['phone'] }}</p>
-                    <i class="bi bi-geo-alt-fill"></i>: <a href="https://www.google.com/maps/search/?q={{ value['address'] }}">{{ value['address'] }}</a>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-pulse" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1H3a1 1 0 0 0-1 1V14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3.5a1 1 0 0 0-1-1h-1v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Zm6.979 3.856a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.895-.133L4.232 10H3.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .416-.223l1.41-2.115 1.195 3.982a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h1.5a.5.5 0 0 0 0-1h-1.128L9.979 5.356Z"/>
-                      </svg>: {{ value['department'] }}</p>
-                </div>
-                <div class="card-content-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">一</th>
-                                <th scope="col">二</th>
-                                <th scope="col">三</th>
-                                <th scope="col">四</th>
-                                <th scope="col">五</th>
-                                <th scope="col">六</th>
-                                <th scope="col">日</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">上午</th>
-                                <td>{% if value['time']['mon'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['tue'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['wed'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['thr'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['fri'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sat'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sun'][0] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">下午</th>
-                                <td>{% if value['time']['mon'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['tue'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['wed'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['thr'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['fri'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sat'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sun'][1] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">晚上</th>
-                                <td>{% if value['time']['mon'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['tue'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['wed'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['thr'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['fri'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sat'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                                    <td>{% if value['time']['sun'][2] == "1" %}&#9679;{% else %}&#10005;{% endif %}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
     <script>
+        // //先傳送當前checkBox的state
+        // sendCheckboxData();
         // 監聽所有的 checkbox
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
@@ -118,14 +133,15 @@
         // 非同步函式
         function sendCheckboxData() {
             const data = {};
-
+            const temp = [];
             // 迭代每個 checkbox，並將其 id 和狀態存入 data 物件
             checkboxes.forEach(function (checkbox) {
                 if (checkbox.checked) {
-                    data[checkbox.id] = checkbox.checked;
+                    data['username'] = document.getElementById(checkbox.id).name;
+                    temp.push(checkbox.id);
                 }
             });
-
+            data['favorites'] = temp;
             // 發送 POST 請求
             fetch('/result/submit', {
                 method: 'POST',
@@ -134,17 +150,17 @@
                 },
                 body: JSON.stringify(data),
             })
-            .then(function (response) {
-                // 處理回應
-                if (response.ok) {
-                    console.log('資料已成功傳送');
-                } else {
-                    console.log('發生錯誤');
-                }
-            })
-            .catch(function (error) {
-                console.log('發生錯誤', error);
-            });
+                .then(function (response) {
+                    // 處理回應
+                    if (response.ok) {
+                        console.log('資料已成功傳送');
+                    } else {
+                        console.log('發生錯誤');
+                    }
+                })
+                .catch(function (error) {
+                    console.log('發生錯誤', error);
+                });
         }
 
     </script>

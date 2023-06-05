@@ -25,6 +25,24 @@
 
         <div class="right">
             <h5>查詢</h5>
+            {% for message in get_flashed_messages() %}
+            <div class="alert">
+                <div class="alert-text">
+                    <p>{{ message }}</p>
+                </div>
+                <div class="alert-btn">
+                    <span>&times;</span>
+                </div>
+            </div>
+            <script>
+                const closeBtn = document.querySelector('.alert-btn span');
+                const alertBox = document.querySelector('.alert');
+
+                closeBtn.addEventListener('click', function () {
+                    alertBox.style.display = 'none';
+                })
+            </script>
+            {% endfor %}
             <form method="post">
                 <div class="inputs">
                     <select name="county" id="county" onchange="updateOptions()">
@@ -69,22 +87,22 @@
                     <div class="checkbox">
                         <input type="checkbox" id="mon" name="mon" checked>
                         <label for="mon">一</label>
-    
+
                         <input type="checkbox" id="tue" name="tue" checked>
                         <label for="tue">二</label>
-    
+
                         <input type="checkbox" id="wed" name="wed" checked>
                         <label for="wed">三</label>
-    
+
                         <input type="checkbox" id="thr" name="thr" checked>
                         <label for="thr">四</label>
-    
+
                         <input type="checkbox" id="fri" name="fri" checked>
                         <label for="fri">五</label>
-    
+
                         <input type="checkbox" id="sat" name="sat" checked>
                         <label for="sat">六</label>
-    
+
                         <input type="checkbox" id="sun" name="sun" checked>
                         <label for="sun">日</label>
                     </div>
