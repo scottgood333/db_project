@@ -22,6 +22,24 @@
 
 		<div class="right">
 			<h5>登入</h5>
+			{% for message in get_flashed_messages() %}
+			<div class="alert">
+				<div class="alert-text">
+					<p>{{ message }}</p>
+				</div>
+				<div class="alert-btn">
+					<span>&times;</span>
+				</div>
+			</div>
+			<script>
+				const closeBtn = document.querySelector('.alert-btn span');
+				const alertBox = document.querySelector('.alert');
+
+				closeBtn.addEventListener('click', function () {
+					alertBox.style.display = 'none';
+				})
+			</script>
+			{% endfor %}
 			<form method="post">
 				<div class="inputs">
 					<input type="text" placeholder="ID" name="id">

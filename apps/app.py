@@ -27,9 +27,11 @@ def login():
             return redirect(url_for('search', username=userId))
         if loginAuthMsg == 'incorrect password':  # 之後再加入flash
             print("輸入的密碼有誤！")
+            flash("輸入的密碼有誤！")
             return redirect(url_for('login'))
         if loginAuthMsg == 'non-existent user':  # 之後再加入flash
             print("不存在這個使用者！")
+            flash("不存在這個使用者！")
             return redirect(url_for('login'))
     return render_template('login.html')
 

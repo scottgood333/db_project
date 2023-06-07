@@ -191,7 +191,13 @@ def addToFavorites(user_favorite_dict, cursor):
 
     for favorite in favorites:
         cursor.execute(
-            f'INSERT INTO favorites VALUES (\'{username}\', \'{favorite}\')')
+            f'SELECT user_id, hospital_sign_num FROM favorites WHERE  user_id = \'{username}\' AND  hospital_sign_num = \'{favorite}\';')
+
+        ret = cursor.fetchall()
+        print('ret: ', ret)
+        if (not ret):
+            cursor.execute(
+                f'INSERT INTO favorites VALUES (\'{username}\', \'{favorite}\')')
 
     print(username)
     print(user_favorite_dict)
@@ -214,7 +220,7 @@ def upateFavorites(user_favorite_dict, cursor):
         cursor.execute(
             f'INSERT INTO favorites VALUES (\'{username}\', \'{favorite}\')')
 
-    print(username)
+    print('username: ', username)
     print(user_favorite_dict)
 
 

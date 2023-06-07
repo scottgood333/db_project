@@ -101,11 +101,47 @@ body {
   border: 0;
   outline: 0;
   background-color: #4d54d6;
-  bottom: 30px;/* 距離容器底部的距離為 0 */
+  bottom: 30px;
+  /* 距離容器底部的距離為 0 */
   right: 30px;
 }
 
 .box-form .right button:hover {
-  background-color: #4046b2;/* 滑鼠懸停時，設定背景顏色 */
-  color: #fff;/* 滑鼠懸停時，設定文字顏色 */
+  background-color: #4046b2;
+  /* 滑鼠懸停時，設定背景顏色 */
+  color: #fff;
+  /* 滑鼠懸停時，設定文字顏色 */
+}
+
+.box-form .right .alert {
+  width: 100%;
+  padding: 8px;
+  margin-top: 25px;
+  font-size: 16px;
+  background-color: navajowhite;
+  border-radius: 5px;
+  display: flex;
+}
+
+.box-form .right .alert-text {
+  flex: 0.8;
+}
+
+.box-form .right .alert-text p {
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+
+.box-form .right .alert-btn {
+  flex: 0.2;
+  margin: 3px;
+  padding: 10px;
+}
+
+.box-form .right .alert-btn span {
+  float: right;
+  transform: scale(2);
+  cursor: pointer;
+  font-weight: bold;
 }

@@ -117,10 +117,12 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
     <script>
-        // //先傳送當前checkBox的state
-        // sendCheckboxData();
         // 監聽所有的 checkbox
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        // // //先傳送當前checkBox的state
+        // checkboxes.forEach(function (checkbox) {
+        //     sendCheckboxData();
+        // });
 
         // 建立監聽事件
         checkboxes.forEach(function (checkbox) {
@@ -137,9 +139,9 @@
             // 迭代每個 checkbox，並將其 id 和狀態存入 data 物件
             checkboxes.forEach(function (checkbox) {
                 if (checkbox.checked) {
-                    data['username'] = document.getElementById(checkbox.id).name;
                     temp.push(checkbox.id);
                 }
+                data['username'] = document.getElementById(checkbox.id).name;
             });
             data['favorites'] = temp;
             // 發送 POST 請求
