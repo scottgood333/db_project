@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+.search-form {
+  background: #fff;
+  width: 500px;
+  margin: 65px auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+
+.search-form h1 {
+  padding: 10px 35px 0 35px;
+  font-weight: 300;
+}
+
+.search-form .content {
+  padding: 32px;
+  text-align: center;
+}
+
+.search-form .select-field {
+  padding: 12px 5px;
+}
+
+.search-form .select-field select {
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.search-form .action {
+  padding: 15px;
+  text-align: center;
+}
+
+.search-form .btn-field {
+  padding: 12px 5px;
+}
+
+.search-form .btn-field .btn {
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  background-color: #619ce8;
+}
+
+p {
+  text-align: left;
+}
+
+.box-form .right .alert {
+  width: 100%;
+  padding: 8px;
+  margin-top: 25px;
+  font-size: 16px;
+  background-color: navajowhite;
+  border-radius: 5px;
+  display: flex;
+}
+
+.box-form .right .alert-text {
+  flex: 0.8;
+}
+
+.box-form .right .alert-text p {
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+
+.box-form .right .alert-btn {
+  flex: 0.2;
+  margin: 3px;
+  padding: 10px;
+}
+
+.box-form .right .alert-btn span {
+  float: right;
+  transform: scale(2);
+  cursor: pointer;
+  font-weight: bold;
+}
